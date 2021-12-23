@@ -21,7 +21,7 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
     }
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(
-            userId.compareTo(String()),
+            userId,
             userRepository = GitHubUserRepositoryFactory.create()
         )
     }

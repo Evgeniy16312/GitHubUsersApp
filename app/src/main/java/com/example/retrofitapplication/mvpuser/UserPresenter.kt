@@ -10,7 +10,7 @@ import moxy.MvpPresenter
 
 
 class UserPresenter(
-    private val userId: Int,
+    private val userId: String,
     private val userRepository: GitHubUserRepository,
     private val subject: @NonNull BehaviorSubject<GitHubUser> = BehaviorSubject.create(),
 ) : MvpPresenter<UserView>() {
@@ -18,11 +18,11 @@ class UserPresenter(
     override fun onFirstViewAttach() {
         setSubject()
         userRepository
-            .getUsers()
+            .getUserByLogin(userId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                subject.onNext(it[userId - 1])
+                subject.onNext(it)
             }, {})
     }
 
