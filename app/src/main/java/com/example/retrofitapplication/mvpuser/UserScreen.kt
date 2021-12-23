@@ -5,9 +5,9 @@ import androidx.fragment.app.FragmentFactory
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 
-class UserScreen(private val userLogin: String): FragmentScreen {
+class UserScreen(private val userId: String) : FragmentScreen {
 
     override fun createFragment(factory: FragmentFactory): Fragment =
-        UserFragment.newInstance(userLogin)
+        UserFragment.newInstance(userId)
 
 }

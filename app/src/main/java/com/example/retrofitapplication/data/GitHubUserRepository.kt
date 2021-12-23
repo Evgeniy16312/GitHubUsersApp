@@ -7,6 +7,6 @@ interface GitHubUserRepository {
 
     fun getUsers(): Single<List<GitHubUser>>
 
-    fun getUserByLogin(userId: String): GitHubUser?
+    fun getUserByLogin(userId: String): Single<GitHubUser>
 
 }
