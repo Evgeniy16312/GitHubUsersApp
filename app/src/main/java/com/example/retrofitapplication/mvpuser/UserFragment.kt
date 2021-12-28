@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.example.retrofitapplication.App
 import com.example.retrofitapplication.R
 import com.example.retrofitapplication.data.repository.GitHubUser
-import com.example.retrofitapplication.data.repository.GitHubUserRepositoryFactory
 import com.example.retrofitapplication.databinding.UserInfoLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter

@@ -2,6 +2,8 @@ package com.example.retrofitapplication.di
 
 import android.content.Context
 import com.example.retrofitapplication.MainActivity
+import com.example.retrofitapplication.mvpuser.UserPresenter
+import com.example.retrofitapplication.mvpusers.UsersPresenter
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -28,6 +30,6 @@ interface ApplicationComponent {
     }
 
     fun inject(activity: MainActivity)
-    fun inject(activity: GitHubUsersPresenter)
-    fun inject(activity: GitHubUserPresenter)
+    fun inject(activity: UsersPresenter)
+    fun inject(activity: UserPresenter)
 }

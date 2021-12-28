@@ -3,7 +3,8 @@ package com.example.retrofitapplication
 
 import android.app.Application
 import com.example.retrofitapplication.di.ApplicationComponent
-import com.meeweel.ciceronlogger.di.DaggerApplicationComponent
+import com.example.retrofitapplication.di.DaggerApplicationComponent
+
 
 class App : Application() {
 

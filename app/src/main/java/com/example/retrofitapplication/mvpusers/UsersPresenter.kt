@@ -6,12 +6,18 @@ import com.example.retrofitapplication.navigation.CustomRouter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import moxy.MvpPresenter
+import javax.inject.Inject
 
 
 class UsersPresenter(
-    private val userRepository: GitHubUserRepository,
-    private val router: CustomRouter
+
 ) : MvpPresenter<UsersView>() {
+
+    @Inject
+    lateinit var userRepository: GitHubUserRepository
+
+    @Inject
+    lateinit var router: CustomRouter
 
     override fun onFirstViewAttach() {
         updateContent()

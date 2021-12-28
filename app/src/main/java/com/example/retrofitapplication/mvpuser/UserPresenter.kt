@@ -7,13 +7,16 @@ import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import moxy.MvpPresenter
+import javax.inject.Inject
 
 
 class UserPresenter(
     private val userId: String,
-    private val userRepository: GitHubUserRepository,
     private val subject: @NonNull BehaviorSubject<GitHubUser> = BehaviorSubject.create(),
 ) : MvpPresenter<UserView>() {
+
+    @Inject
+    lateinit var userRepository: GitHubUserRepository
 
     override fun onFirstViewAttach() {
         setSubject()
