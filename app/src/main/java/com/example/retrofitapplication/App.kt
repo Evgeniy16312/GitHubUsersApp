@@ -1,31 +1,23 @@
 package com.example.retrofitapplication
 
-import android.annotation.SuppressLint
-import android.app.Application
-import android.content.Context
-import com.github.terrakok.cicerone.Cicerone
-import com.example.retrofitapplication.navigation.CustomRouter
 
+import android.app.Application
+import com.example.retrofitapplication.di.ApplicationComponent
+import com.meeweel.ciceronlogger.di.DaggerApplicationComponent
 
 class App : Application() {
 
-    @SuppressLint("StaticFieldLeak")
-    object ContextHolder {
-        lateinit var context: Context
-    }
+    lateinit var component: ApplicationComponent
 
     override fun onCreate() {
         super.onCreate()
-        ContextHolder.context = this
+        instance = this
+        component = DaggerApplicationComponent.builder()
+            .setContext(this)
+            .build()
     }
 
-
-    companion object Navigation {
-
-        private val cicerone: Cicerone<CustomRouter> by lazy {
-            Cicerone.create(CustomRouter())
-        }
-        val navigatorHolder = cicerone.getNavigatorHolder()
-        val router = cicerone.router
+    companion object {
+        lateinit var instance: App
     }
 }

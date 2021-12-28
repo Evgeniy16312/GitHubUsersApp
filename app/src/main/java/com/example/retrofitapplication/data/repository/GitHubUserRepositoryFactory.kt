@@ -1,4 +1,4 @@
-package com.example.retrofitapplication.data
+package com.example.retrofitapplication.data.repository
 
 object GitHubUserRepositoryFactory {
 

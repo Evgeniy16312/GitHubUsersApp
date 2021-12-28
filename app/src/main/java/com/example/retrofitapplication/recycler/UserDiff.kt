@@ -1,7 +1,7 @@
 package com.example.retrofitapplication.recycler
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.retrofitapplication.data.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUser
 
 
 class UserDiff : DiffUtil.ItemCallback<GitHubUser>() {

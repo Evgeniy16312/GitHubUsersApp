@@ -5,9 +5,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
+import com.example.retrofitapplication.App
 import com.example.retrofitapplication.R
-import com.example.retrofitapplication.data.GitHubUser
-import com.example.retrofitapplication.data.GitHubUserRepositoryFactory
+import com.example.retrofitapplication.data.repository.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUserRepositoryFactory
 import com.example.retrofitapplication.databinding.UserInfoLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -20,10 +21,9 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
         arguments?.getString(ARG_USER_LOGIN).orEmpty()
     }
     private val presenter: UserPresenter by moxyPresenter {
-        UserPresenter(
-            userId,
-            userRepository = GitHubUserRepositoryFactory.create()
-        )
+        UserPresenter(userId).apply {
+            App.instance.component.inject(this)
+        }
     }
 
     private lateinit var viewBinging: UserInfoLayoutBinding

@@ -1,6 +1,6 @@
 package com.example.retrofitapplication.data.room
 
-import com.example.retrofitapplication.data.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUser
 
 fun convertEntityToGitHubUser(entity: Entity): GitHubUser {
     return GitHubUser(

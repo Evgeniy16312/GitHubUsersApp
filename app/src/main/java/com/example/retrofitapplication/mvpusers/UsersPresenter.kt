@@ -1,6 +1,6 @@
 package com.example.retrofitapplication.mvpusers
 
-import com.example.retrofitapplication.data.GitHubUserRepository
+import com.example.retrofitapplication.data.repository.GitHubUserRepository
 import com.example.retrofitapplication.mvpuser.UserScreen
 import com.example.retrofitapplication.navigation.CustomRouter
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

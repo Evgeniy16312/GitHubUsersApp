@@ -3,7 +3,7 @@ package com.example.retrofitapplication.recycler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.example.retrofitapplication.data.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUser
 import com.example.retrofitapplication.databinding.ViewUserBinding
 
 

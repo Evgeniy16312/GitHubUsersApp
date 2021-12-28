@@ -1,7 +1,7 @@
 package com.example.retrofitapplication.mvpuser
 
-import com.example.retrofitapplication.data.GitHubUser
-import com.example.retrofitapplication.data.GitHubUserRepository
+import com.example.retrofitapplication.data.repository.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUserRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.schedulers.Schedulers
