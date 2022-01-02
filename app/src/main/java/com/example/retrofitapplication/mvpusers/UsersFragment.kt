@@ -3,7 +3,7 @@ package com.example.retrofitapplication.mvpusers
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.example.retrofitapplication.App
+import com.example.retrofitapplication.app.App
 import com.example.retrofitapplication.R
 import com.example.retrofitapplication.data.repository.GitHubUser
 import com.example.retrofitapplication.databinding.ViewUsersBinding

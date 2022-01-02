@@ -1,8 +1,8 @@
 package com.example.retrofitapplication.di
 
 import android.content.Context
-import com.example.retrofitapplication.MainActivity
-import com.example.retrofitapplication.mvpuser.UserPresenter
+import com.example.retrofitapplication.app.MainActivity
+import com.example.retrofitapplication.mvpuser.di.GitHubUserComponent
 import com.example.retrofitapplication.mvpusers.UsersPresenter
 import dagger.BindsInstance
 import dagger.Component
@@ -21,6 +21,8 @@ import javax.inject.Singleton
 
 interface ApplicationComponent {
 
+    fun provideGitHubUserComponent(): GitHubUserComponent.Builder
+
     @Component.Builder
     interface Builder {
 
@@ -29,7 +31,7 @@ interface ApplicationComponent {
         fun build(): ApplicationComponent
     }
 
+
     fun inject(activity: MainActivity)
-    fun inject(activity: UsersPresenter)
-    fun inject(activity: UserPresenter)
+    fun inject(presenter: UsersPresenter)
 }

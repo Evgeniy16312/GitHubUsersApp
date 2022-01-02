@@ -2,6 +2,7 @@ package com.example.retrofitapplication.mvpuser
 
 import com.example.retrofitapplication.data.repository.GitHubUser
 import com.example.retrofitapplication.data.repository.GitHubUserRepository
+import com.example.retrofitapplication.data.userrepository.GHuserRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -18,6 +19,9 @@ class UserPresenter(
     @Inject
     lateinit var userRepository: GitHubUserRepository
 
+    @Inject
+    lateinit var ghUserRepository: GHuserRepository
+
     override fun onFirstViewAttach() {
         setSubject()
         userRepository
@@ -31,10 +35,17 @@ class UserPresenter(
 
     private fun setSubject() {
         subject
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                ghUserRepository.getUserByLogin(it.login!!)
                 viewState.showResult(it)
             }, {})
     }
 }
+//    private fun setSubject() {
+//        subject
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe({
+//                viewState.showResult(it)
+//            }, {})
+//    }
