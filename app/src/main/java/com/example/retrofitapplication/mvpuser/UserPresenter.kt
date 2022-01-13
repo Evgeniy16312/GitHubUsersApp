@@ -27,10 +27,14 @@ class UserPresenter(
         userRepository
             .getUserByLogin(userId)
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { viewState.setProgressBarVisibility(true) }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                viewState.setProgressBarVisibility(false)
                 subject.onNext(it)
-            }, {})
+            }, {
+                viewState.setProgressBarVisibility(false)
+            })
     }
 
     private fun setSubject() {

@@ -45,6 +45,15 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
             .into(viewBinging.userPhoto)
     }
 
+    override fun setProgressBarVisibility(isVisible: Boolean) {
+        val visibility = if (isVisible) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+        viewBinging.progress.visibility = visibility
+    }
+
     companion object {
         private const val ARG_USER_LOGIN = "arg_user_login"
         fun newInstance(userId: String): Fragment =

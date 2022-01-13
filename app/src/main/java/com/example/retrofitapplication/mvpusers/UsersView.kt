@@ -10,4 +10,7 @@ interface UsersView : MvpView {
     @SingleState
     fun showUsers(users: List<GitHubUser>)
 
+    @SingleState
+    fun setProgressBarVisibility(isVisible: Boolean)
+
 }

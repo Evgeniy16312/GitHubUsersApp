@@ -30,12 +30,14 @@ class UsersPresenter(
     private fun updateContent() {
         userRepository.getUsers()
             .subscribeOn(Schedulers.io())
+            .doOnSubscribe { viewState.setProgressBarVisibility(true) }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
+                viewState.setProgressBarVisibility(false)
                 viewState.showUsers(it)
             }, {
                 val errorMessage = it.message
-                //DisplayError
+                viewState.setProgressBarVisibility(false)
             })
     }
 }
