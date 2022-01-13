@@ -2,14 +2,20 @@ package com.example.retrofitapplication.mvpuser
 
 import com.example.retrofitapplication.data.repository.GitHubUser
 import moxy.MvpView
-import moxy.viewstate.strategy.alias.Skip
+import moxy.viewstate.strategy.alias.*
 
 
 interface UserView : MvpView {
 
-    @Skip
+    @SingleState
     fun toastError(text: String)
 
-    @Skip
+    @SingleState
     fun showResult(user: GitHubUser)
+
+    @AddToEndSingle
+    fun setProgressBarVisibility(isVisible: Boolean)
+
+    @AddToEndSingle
+    fun showErrorVisibility(isVisibleError: Boolean)
 }

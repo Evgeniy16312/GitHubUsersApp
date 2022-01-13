@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RetrofitApplication</string>
+    <string name="error_network">Произошла ошибка подклчения сети. Попробуйте еще раз.</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.retrofitapplication
+package com.example.retrofitapplication.app
 
 import android.R
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +31,12 @@ class MainActivity : AppCompatActivity() {
         if (savedInstanceState == null) {
             router.newRootScreen(UsersScreen)
         }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        router.backTo(UsersScreen)
+        return true
     }
 
     override fun onPause() {

@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.retrofitapplication.App
+import com.example.retrofitapplication.app.App
 import com.example.retrofitapplication.R
 import com.example.retrofitapplication.data.repository.GitHubUser
 import com.example.retrofitapplication.databinding.UserInfoLayoutBinding
@@ -21,7 +21,8 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
     }
     private val presenter: UserPresenter by moxyPresenter {
         UserPresenter(userId).apply {
-            App.instance.component.inject(this)
+//            App.instance.component.inject(this)
+            App.instance.component.provideGitHubUserComponent().build().inject(this)
         }
     }
 
@@ -42,6 +43,20 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
         Glide.with(viewBinging.userPhoto.context)
             .load(user.avatarUrl)
             .into(viewBinging.userPhoto)
+    }
+
+    override fun setProgressBarVisibility(isVisible: Boolean) {
+        val visibility = if (isVisible) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+        viewBinging.progress.visibility = visibility
+    }
+
+    override fun showErrorVisibility(isVisibleError: Boolean) {
+        val visibility = if (isVisible) View.GONE else View.VISIBLE
+        viewBinging.networkError.visibility = visibility
     }
 
     companion object {

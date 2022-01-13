@@ -1,4 +1,4 @@
-package com.example.retrofitapplication
+package com.example.retrofitapplication.app
 
 
 import android.app.Application
