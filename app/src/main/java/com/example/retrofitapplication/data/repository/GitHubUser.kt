@@ -1,4 +1,4 @@
-package com.example.retrofitapplication.data
+package com.example.retrofitapplication.data.repository
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

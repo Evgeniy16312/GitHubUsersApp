@@ -1,6 +1,6 @@
 package com.example.retrofitapplication.data.retrofit
 
-import com.example.retrofitapplication.data.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUser
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

@@ -1,19 +1,22 @@
 package com.example.retrofitapplication.mvpuser
 
-import com.example.retrofitapplication.data.GitHubUser
-import com.example.retrofitapplication.data.GitHubUserRepository
+import com.example.retrofitapplication.data.repository.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUserRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import moxy.MvpPresenter
+import javax.inject.Inject
 
 
 class UserPresenter(
     private val userId: String,
-    private val userRepository: GitHubUserRepository,
     private val subject: @NonNull BehaviorSubject<GitHubUser> = BehaviorSubject.create(),
 ) : MvpPresenter<UserView>() {
+
+    @Inject
+    lateinit var userRepository: GitHubUserRepository
 
     override fun onFirstViewAttach() {
         setSubject()

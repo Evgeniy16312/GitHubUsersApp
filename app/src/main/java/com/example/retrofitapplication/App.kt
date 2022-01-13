@@ -1,18 +1,24 @@
 package com.example.retrofitapplication
 
+
 import android.app.Application
-import com.github.terrakok.cicerone.Cicerone
-import com.example.retrofitapplication.navigation.CustomRouter
+import com.example.retrofitapplication.di.ApplicationComponent
+import com.example.retrofitapplication.di.DaggerApplicationComponent
 
 
-class App: Application() {
+class App : Application() {
 
-    companion object Navigation {
+    lateinit var component: ApplicationComponent
 
-        private val cicerone: Cicerone<CustomRouter> by lazy {
-            Cicerone.create(CustomRouter())
-        }
-        val navigatorHolder = cicerone.getNavigatorHolder()
-        val router = cicerone.router
+    override fun onCreate() {
+        super.onCreate()
+        instance = this
+        component = DaggerApplicationComponent.builder()
+            .setContext(this)
+            .build()
+    }
+
+    companion object {
+        lateinit var instance: App
     }
 }

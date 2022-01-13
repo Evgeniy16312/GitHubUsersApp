@@ -2,7 +2,7 @@ package com.example.retrofitapplication.recycler
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.retrofitapplication.data.GitHubUser
+import com.example.retrofitapplication.data.repository.GitHubUser
 import com.example.retrofitapplication.databinding.ViewUserBinding
 
 
