@@ -43,6 +43,11 @@ class UsersFragment : MvpAppCompatFragment(R.layout.view_users), UsersView,
         viewBinging.progress.visibility = visibility
     }
 
+    override fun showErrorVisibility(isVisibleError: Boolean) {
+        val visibility = if (isVisibleError) View.VISIBLE else View.GONE
+        viewBinging.networkError.visibility = visibility
+    }
+
     override fun onUserPicked(user: GitHubUser) {
         presenter.goToNextScreen(user.login!!)
     }

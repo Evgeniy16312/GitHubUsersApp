@@ -54,6 +54,11 @@ class UserFragment : MvpAppCompatFragment(R.layout.user_info_layout),
         viewBinging.progress.visibility = visibility
     }
 
+    override fun showErrorVisibility(isVisibleError: Boolean) {
+        val visibility = if (isVisible) View.GONE else View.VISIBLE
+        viewBinging.networkError.visibility = visibility
+    }
+
     companion object {
         private const val ARG_USER_LOGIN = "arg_user_login"
         fun newInstance(userId: String): Fragment =
