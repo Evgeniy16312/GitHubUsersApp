@@ -14,8 +14,9 @@ get a list of github API [link](https://api.github.com) users and display inform
 - **RxJava3**<br/>
 - **Dagger2**<br/>
 - **ROOM**<br/>
-- **Retrofit**<br/>
+- **Retrofit2**<br/>
 - **ViewBinding**<br/>
+- - **Glide**<br/>
 
 ---
 ## Screenshots
