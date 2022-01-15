@@ -16,7 +16,7 @@ get a list of github API [link](https://api.github.com) users and display inform
 - **ROOM**<br/>
 - **Retrofit2**<br/>
 - **ViewBinding**<br/>
-- - **Glide**<br/>
+- **Glide**<br/>
 
 ---
 ## Screenshots
