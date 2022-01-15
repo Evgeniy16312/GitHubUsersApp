@@ -18,7 +18,7 @@ get a list of github API [link](https://api.github.com) users and display inform
 - **ViewBinding**<br/>
 
 ---
-##Screenshots
+## Screenshots
 
 Main screen | User information
 ---|---
